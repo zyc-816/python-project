@@ -1,8 +1,5 @@
 import pandas as pd
-import numpy as np
 import matplotlib.pyplot as plt
-import seaborn as sns
-import os
 from scipy import stats
 import statsmodels.api as sm
 from statsmodels.tsa.statespace.sarimax import SARIMAX
@@ -55,7 +52,6 @@ model_2 = SARIMAX(train_data["sales"], order=(p, d, q), seasonal_order=(P, D, Q,
 forecast_2 = model_2.forecast(steps=len(test_data)).round(1)
 forecast_index_2 = test_data.index
 forecast_2.index = test_data.index
-print(forecast_2)
 
 # 定义随机森林模型
 _train_data = train_data.copy()
